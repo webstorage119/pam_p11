@@ -14,11 +14,9 @@ pam_p11_la_SOURCES = pam_p11.c base64.c \
 noinst_PROGRAMS = test-login test-passwd
 
 test_login_SOURCES = test.c login.c $(pam_p11_la_SOURCES)
-test_login_LDADD   = -lpam_misc
 test_login_CFLAGS  = $(AM_CFLAGS) -DLIBDIR=\"$(libdir)\" -DTEST
 
 test_passwd_SOURCES = test.c passwd.c $(pam_p11_la_SOURCES)
-test_passwd_LDADD   = -lpam_misc
 test_passwd_CFLAGS  = $(AM_CFLAGS) -DLIBDIR=\"$(libdir)\" -DTEST
 
 format:

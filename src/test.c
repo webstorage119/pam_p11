@@ -22,10 +22,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 #include <security/pam_appl.h>
-#include <security/pam_misc.h>
 #include <security/pam_modules.h>
+#ifdef HAVE_LIBPAM_MISC
+#include <security/pam_misc.h>
+#endif
 
 #ifndef LIBDIR
 #define LIBDIR "/usr/lib"
@@ -42,7 +46,11 @@ int main(int argc, const char **argv)
 	};
 	pam_handle_t *pamh = NULL;
 	struct pam_conv conv = {
+#ifdef HAVE_OPENPAM_TTYCONV
+		openpam_ttyconv,
+#else
 		misc_conv,
+#endif
 		NULL,
 	};
 	int r;
