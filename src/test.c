@@ -27,7 +27,7 @@
 
 #include <security/pam_appl.h>
 #include <security/pam_modules.h>
-#ifdef HAVE_LIBPAM_MISC
+#ifdef HAVE_SECURITY_PAM_MISC_H
 #include <security/pam_misc.h>
 #endif
 
