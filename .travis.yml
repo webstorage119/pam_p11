@@ -38,6 +38,8 @@ before_install:
         export LDFLAGS="-L$(brew --prefix openssl)/lib"
         export PATH="/usr/local/opt/ccache/libexec:$PATH";
         export PATH="/usr/local/opt/gettext/bin:$PATH";
+        ls $(brew --prefix openssl);
+        env;
     fi
 
 before_script:
